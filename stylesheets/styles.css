@@ -229,6 +229,11 @@ footer {
   }
 }
 
+img {
+    max-height: 200px; /* Set the maximum height to 200 pixels */
+    min-height: 1px; /* Set the minimum height to 100 pixels */
+  }
+
 @media print, screen and (max-width: 720px) {
   body {
     word-wrap:break-word;
