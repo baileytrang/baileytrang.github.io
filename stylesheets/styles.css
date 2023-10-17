@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2023 
+ *   All rights reserved.
+ */
 body {
   background-color: #fff;
   padding:50px;
@@ -55,7 +59,7 @@ a:hover small {
 }
 
 .wrapper {
-  width:900px;
+  width:860px;
   margin:0 auto;
 }
 
@@ -104,10 +108,10 @@ img {
 }
 
 header {
-  width:270px;
+  width:210px;
   float:left;
   position:fixed;
-  -webkit-font-smoothing:subpixel-antialiased;
+  -webkit-font-smoothing:subpixel-antialiased; 
 }
 
 header ul {
@@ -170,7 +174,8 @@ header ul a strong {
 }
 
 section {
-  width:500px;
+  max-width:601px;
+  min-width:300px;
   float:right;
   padding-bottom:50px;
 }
