@@ -1,3 +1,7 @@
+/*
+ *   Copyright (c) 2024 
+ *   All rights reserved.
+ */
 var metas = document.getElementsByTagName('meta');
 var i;
 if (navigator.userAgent.match(/iPhone/i)) {
@@ -15,3 +19,4 @@ function gestureStart() {
     }
   }
 }
+

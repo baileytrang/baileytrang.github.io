@@ -16,18 +16,27 @@
     
     <div class="wrapper">
       <header>
-        <img src="assets/bio3.png" alt="Your Name">
-        <h1 style="text-align: center; margin-bottom: 5px;">Trang Nguyen</h1>
-        <p style="font-size: 12px; color: gray; text-align: center; margin-top: 0; margin-bottom: 5px;">NGUYEN Ngoc Phuong Trang</p>
-        <p style="font-size: 12px; color: gray; text-align: center; margin-top: 0;">NGUYỄN Ngọc Phương Trang</p>
-        <p>Research assistant <a href="https://medicine.nus.edu.sg/">National University of Singapore</a>. Upcoming PhD student at <a href="https://www.cs.stanford.edu/">Stanford University</a></p>
-        <p>Previously, Intern at <a href="https://mila.quebec/en/">Mila-Quebec AI Institute</a>, Master's student at <a href="https://www.titech.ac.jp/english">Tokyo Institute of Technology</a></p>
+        <img src="assets/bio3.png" alt="Bailey Trang Nguyen">
+        <h1 style="margin-bottom: 5px;">Bailey Trang Nguyen <a id="toggle-button" style="color: blue; font-size: 19px; font-weight: normal;">></a>
+        </h1>
+        <div id="full-name">
+            <p style="margin-bottom: 10px;"> Call me by Bailey or Trang!</p>
+            <p style="margin-bottom: 1px;">First-name: Trang</p>
+            <p style="margin-bottom: 1px; margin-top: 1px;">Last-name: Nguyen</p>
+            <p style="margin-bottom: 10px; margin-top: 1px;">Middle names: Ngoc Phuong</p>
+            <p style="margin-bottom: 10px;"> Fullname in Vietnamese: Nguyễn Ngọc Phương Trang</p>
+            <!-- <p style="margin-bottom: 10px;"> Name on papers (from now on): Bailey Trang</p> -->
+        </div>
+        <p> </p>
+        <p style="margin-bottom: 1px;">Research assistant at <a href="https://medicine.nus.edu.sg/">National University of Singapore</a>. </p>
+        <p>Upcoming PhD student at <a href="https://www.cs.stanford.edu/">Stanford University</a></p>
+        <p>Previously, Intern at <a href="https://mila.quebec/en/">Mila-Quebec AI Institute</a>, Master's student at <a href="https://www.titech.ac.jp/english">Tokyo Institute of Technology</a>.</p>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
 <p class="view">
-    <a href="assets/LucyTrangNguyen_CV.pdf" target="_blank"><i class="fas fa-file-alt"></i> My CV</i></a>
-    <a href="https://twitter.com/lucytrangn" target="_blank"><i class="fab fa-twitter"></i></a>
-    <a href="https://www.linkedin.com/in/trangnnp" target="_blank"><i class="fab fa-linkedin"></i></a>
+    <a href="assets/BaileyTrangNguyen_CV.pdf" target="_blank"><i class="fas fa-file-alt"></i> My CV</i></a>
+    <a href="https://twitter.com/baileytrangn" target="_blank"><i class="fab fa-twitter"></i></a>
+    <a href="https://www.linkedin.com/in/baileytrang" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a href="https://scholar.google.com/citations?user=-yVY9T4AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i></a>
 </p>
 
@@ -89,10 +98,25 @@ NeurIPS '23 - Neural Information Processing Systems 2023<br>
   </p></div>
 
       </section>
-      <footer>
-        <p><small>Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
+
+    <script>
+      const fullNameDiv = document.getElementById('full-name');
+      const toggleButton = document.getElementById('toggle-button');
+
+      toggleButton.addEventListener('click', () => {
+        if (fullNameDiv.style.display === 'none' || fullNameDiv.style.display === '') {
+            // If the full name is hidden or has no display style, show it
+            fullNameDiv.style.display = 'block';
+            toggleButton.textContent = '<';
+        } else {
+            // If the full name is shown, hide it
+            fullNameDiv.style.display = 'none';
+            toggleButton.textContent = '>';
+        }
+      });
+  </script>
+
   </body>
 </html>
