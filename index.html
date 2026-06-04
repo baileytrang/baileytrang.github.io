@@ -7,96 +7,21 @@
     <link rel="stylesheet" href="style.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .profile-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 20px;
-        }
-        .profile-left {
-            flex: 3;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-        .bio-text {
-            flex: 7;
-            max-width: 900px;
-            text-align: justify;
-        }
-        .profile-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%; /* Ensures the image is circular */
-            object-fit: cover; /* Maintains aspect ratio */
-            border: none; /* Removes any border */
-        }
-        .bio {
-            max-width: 400px;
-            text-align: center;
-        }
-        .contact-section {
-            text-align: left;
-        }
-        .contact-list {
-            list-style: none;
-            padding: 0;
-        }
-        .contact-list li {
-            margin-bottom: -30px; /* Reduced spacing between contacts */
-        }
-        .contact-list a {
-            text-decoration: none;
-            color: #0020ad;
-        }
-        .projects-grid {
-            display: flex;
-            flex-direction: column; /* Stack projects vertically */
-            gap: 20px;
-        }
-        .project-card {
-            display: flex;
-            flex-direction: column; /* Ensure vertical stacking */
-            gap: 10px;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 8px;
-        }
-        .project-card h3, .project-card p, .project-card .project-links {
-            line-height: 1.2; /* Reduce line spacing */
-        }
-        .project-thumb {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-right: 10px;
-            text-decoration: none;
-            color: #0020ad;
-        }
-        .project-links a i {
-            margin-right: 5px;
-        }
-        a {
-            text-decoration: none;
-            color: #0020ad; /* Set consistent link color */
-        }
-        a:hover {
-            text-decoration: underline; /* Optional: Add underline on hover for better UX */
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header class="profile-header">
         <div class="profile-left">
             <img src="profile_picure_25.jpg" alt="Bailey Trang Nguyen" class="profile-img">
             <p class="bio">
-                <strong style="font-size: 2em;">Bailey Trang Nguyen</strong><br>
-                <span style="font-size: 1em; color: #555;">Nguyen Ngoc Phuong Trang</span>
+                <strong class="name">Bailey Trang Nguyen</strong>
+                <span class="name-sub">Nguyễn Ngọc Phương Trang</span>
             </p>
             <ul class="contact-list">
-                <li><a href="trangn[@at@]stanford[.dot.]edu"><i class="fas fa-envelope"></i> trangn[@at@]stanford[.dot.]edu</a></li>
-                <li><a href="trangphuongnnguyen[@at@]gmail[.dot.]com"><i class="fas fa-envelope"></i> trangphuongnnguyen[@at@]gmail[.dot.]com</a></li>
+                <li><a class="email" href="trangn[@at@]stanford[.dot.]edu"><i class="fas fa-envelope"></i> trangn[@at@]stanford[.dot.]edu</a></li>
+                <li><a class="email" href="trangphuongnnguyen[@at@]gmail[.dot.]com"><i class="fas fa-envelope"></i> trangphuongnnguyen[@at@]gmail[.dot.]com</a></li>
                 <li><a href="https://www.linkedin.com/in/baileytrang/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
                 <li><a href="https://scholar.google.com/citations?user=-yVY9T4AAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
                 <li><a href="./BaileyTrangNguyen_latest_CV.pdf" target="_blank"><i class="fas fa-file"></i> CV</a></li>
@@ -105,18 +30,20 @@
         </div>
         <div class="bio-text">
             <p>
-                Bailey Trang Nguyen is a second-year PhD student in Computer Science at <a href="https://www.stanford.edu/" target="_blank">Stanford University</a>, affiliated with the <a href="https://med.stanford.edu/psychiatry.html" target="_blank">Department of Psychiatry and Behavioral Sciences</a>, Stanford School of Medicine. She is part of the <a href="https://stai.stanford.edu/" target="_blank"> Stanford Translational AI (STAI) Lab</a>, advised by <a href="https://profiles.stanford.edu/ehsan-adeli" target="_blank">Prof. Ehsan Adeli</a> and <a href="https://profiles.stanford.edu/fei-fei-li" target="_blank">Prof. Fei-Fei Li</a>. Her research focuses on Causal AI in general and its applications in medicine, particularly on counterfactual reasoning and discovery in mental health and psychiatric care.
+                Bailey Trang Nguyen is a <strong>second-year PhD student in Computer Science</strong> at <a href="https://www.stanford.edu/" target="_blank">Stanford University</a>, affiliated with the <a href="https://med.stanford.edu/psychiatry.html" target="_blank">Department of Psychiatry and Behavioral Sciences</a>, Stanford School of Medicine. She is part of the <a href="https://stai.stanford.edu/" target="_blank">Stanford Translational AI (STAI) Lab</a> and the <a href="https://svl.stanford.edu/people/" target="_blank">Stanford Vision and Learning Lab (SVL)</a>, advised by <a href="https://profiles.stanford.edu/ehsan-adeli" target="_blank">Prof. Ehsan Adeli</a> and <a href="https://profiles.stanford.edu/fei-fei-li" target="_blank">Prof. Fei-Fei Li</a>. Her research centers on <strong>Causal AI</strong> and its applications in medicine, with a particular focus on <strong>causal reasoning and discovery in mental health and psychiatric care</strong>. During her PhD, she is also a <strong>Summer Research Intern</strong> at <a href="https://jobs.netflix.com/" target="_blank">Netflix</a> in Los Gatos, CA.
             </p>
             <p>
-                Prior to joining Stanford, Bailey was a Research Assistant at the <a href="https://www.nuhs.edu.sg/" target="_blank">National University Health System (NUHS)</a> at <a href="https://www.cogai4sci.com/" target="_blank">CogAI4Sci</a> Lab in Singapore, advised by <a href="https://www.cogai4sci.com/index.html" target="_blank">Prof. Dianbo Liu</a>. She also interned at the <a href="https://mila.quebec/en/" target="_blank">Mila Institute</a> in Canada, supervised by <a href="https://yoshuabengio.org/" target="_blank">Prof. Yoshua Bengio</a> and <a href="https://www.cogai4sci.com/index.html" target="_blank">Prof. Dianbo Liu</a>. 
+                Before joining Stanford, Bailey was a Research Assistant in the <a href="https://www.cogai4sci.com/" target="_blank">CogAI4Sci</a> Lab at the <a href="https://www.nuhs.edu.sg/" target="_blank">National University Health System (NUHS)</a> in Singapore, advised by <a href="https://www.cogai4sci.com/index.html" target="_blank">Prof. Dianbo Liu</a>. She was also a Research Intern at the <a href="https://mila.quebec/en/" target="_blank">Mila – Quebec AI Institute</a> in Canada, supervised by <a href="https://yoshuabengio.org/" target="_blank">Prof. Yoshua Bengio</a> and <a href="https://www.cogai4sci.com/index.html" target="_blank">Prof. Dianbo Liu</a>.
             </p>
             <p>
-                Bailey completed her undergraduate studies at the <a href="https://www.hcmus.edu.vn/" target="_blank">Vietnam National University - Ho Chi Minh City University of Science (VNU-HCMUS)</a> in Vietnam, advised by <a href="https://scholar.google.com/citations?hl=en&user=016ww0cAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Thao-Nhi Tran</a> and her Master's studies at the <a href="https://www.titech.ac.jp/english/" target="_blank">Tokyo Institute of Technology (Tokyo Tech)</a> in Japan, supervised by <a href="https://www.chokkan.org/" target="_blank">Prof. Naoaki Okazaki</a>.
+                Bailey completed her undergraduate studies at the <a href="https://www.hcmus.edu.vn/" target="_blank">Vietnam National University – Ho Chi Minh City University of Science (VNU-HCMUS)</a> in Vietnam, advised by <a href="https://scholar.google.com/citations?hl=en&user=016ww0cAAAAJ&view_op=list_works&sortby=pubdate" target="_blank">Thao-Nhi Tran</a>, and her Master's at the <a href="https://www.titech.ac.jp/english/" target="_blank">Tokyo Institute of Technology (Tokyo Tech)</a> in Japan, supervised by <a href="https://www.chokkan.org/" target="_blank">Prof. Naoaki Okazaki</a>.
             </p>
             <section class="latest-news">
                 <h2>Latest News</h2>
-                <ul>
-                    <li><strong>September 2025:</strong> Our Rainbow work has been accepted to NeurIPS 2025 🎉🎉🎉 </a>.</li>
+                <ul class="news-scroll">
+                    <li><strong>June 2026:</strong> I will join <a href="https://jobs.netflix.com/" target="_blank">Netflix</a> in Los Gatos, CA as a Summer Research Intern, working on causal understanding in extremely-long video.</li>
+                    <li><strong>March 2026:</strong> Serving as a Teaching Assistant for <a href="https://cs231n.stanford.edu/" target="_blank">CS231N — Deep Learning for Computer Vision</a> (Spring 2026).</li>
+                    <li><strong>September 2025:</strong> Our Rainbow work has been accepted to NeurIPS 2025 🎉🎉🎉.</li>
                     <li><strong>January 2025:</strong> Aligned with the <a href="https://stai.stanford.edu/" target="_blank">Stanford Translational AI (STAI) Lab</a>.</li>
                     <li><strong>September 2024:</strong> Started PhD in Computer Science at <a href="https://www.stanford.edu/" target="_blank">Stanford University</a>.</li>
                 </ul>
@@ -125,76 +52,156 @@
     </header>
 
     <section class="projects-section">
-        <h2>Research Projects</h2>
+        <h2>Publications</h2>
         <div class="projects-grid">
-            <!-- Project 1 -->
-            <article class="project-card">
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src="./images/neurips25.png" alt="Generating Novel Brain Morphology" class="project-thumb">
-                    <div>
-                        <h3>Discovering Latent Graphs with GFlowNets for Diverse Conditional Image Generation</h3>
-                        <p class="authors"><strong>Bailey Trang</strong>, Parham Saremi, Alan Q. Wang, Fangrui Huang, Zahra TehraniNasab, Amar Kumar, Tal Arbel, Li Fei-Fei, and Ehsan Adeli</p>
-                        <div class="project-links">
-                            <a href="https://arxiv.org/abs/2510.22107" target="_blank"><i class="fas fa-book"></i>NeurIPS 2025</a>
-                        </div>
-                    </div>
-                </div>
-            </article>
-            <!-- Project 1 -->
-            <article class="project-card">
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src="./images/depho25.jpg" alt="Generating Novel Brain Morphology" class="project-thumb">
-                    <div>
-                        <h3>Generating Novel Brain Morphology by Deforming Learned Templates</h3>
-                        <p class="authors">Alan Q Wang, Fangrui Huang, <strong>Bailey Trang</strong>, Wei Peng, Mohammad Abbasi, Kilian Pohl, Mert Sabuncu, Ehsan Adeli</p>
-                        <div class="project-links">
-                            <a href="https://arxiv.org/abs/2503.03778" target="_blank"><i class="fas fa-book"></i>MICCAI 2025</a>
-                        </div>
-                    </div>
+
+            <!-- Publication 1 -->
+            <article class="publication">
+                <a href="https://arxiv.org/abs/2510.22107" target="_blank">
+                    <img src="./images/neurips25.png" alt="Discovering Latent Graphs with GFlowNets" class="pub-thumb">
+                </a>
+                <div class="pub-body">
+                    <a href="https://arxiv.org/abs/2510.22107" target="_blank"><h3 class="pub-title">Discovering Latent Graphs with GFlowNets for Diverse Conditional Image Generation</h3></a>
+                    <p class="authors"><strong>Bailey Trang</strong>, Parham Saremi, Alan Q. Wang, Fangrui Huang, Zahra TehraniNasab, Amar Kumar, Tal Arbel, Li Fei-Fei, Ehsan Adeli</p>
+                    <p class="venue"><em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2025</p>
+                    <p class="pub-links">
+                        <a href="https://arxiv.org/abs/2510.22107" target="_blank">[arXiv]</a>
+                        <span class="sep">/</span>
+                        [<a href="javascript:void(0)" onclick="toggleBibtex('bib-neurips25')">bibtex</a>]
+                    </p>
+                    <div id="bib-neurips25" class="bibtex"><pre><code>@inproceedings{trang2025discovering,
+  title     = {Discovering Latent Graphs with GFlowNets for Diverse Conditional Image Generation},
+  author    = {Nguyen, Bailey Trang and Saremi, Parham and Wang, Alan Q. and Huang, Fangrui and TehraniNasab, Zahra and Kumar, Amar and Arbel, Tal and Fei-Fei, Li and Adeli, Ehsan},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2025},
+  eprint    = {2510.22107},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CV}
+}</code></pre></div>
                 </div>
             </article>
 
-            <!-- Project 2 -->
-            <article class="project-card">
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src="./images/emnlp23.png" alt="Causal reasoning in VQA" class="project-thumb">
-                    <div>
-                        <h3>Causal reasoning through two cognition layers for improving generalization in visual question answering</h3>
-                        <p class="authors"><strong>Trang Nguyen</strong>, Naoaki Okazaki</p>
-                        <div class="project-links">
-                            <a href="https://aclanthology.org/2023.emnlp-main.573/" target="_blank"><i class="fas fa-book"></i>EMNLP 2023</a>
-                        </div>
-                    </div>
+            <!-- Publication 2 -->
+            <article class="publication">
+                <a href="https://arxiv.org/abs/2503.03778" target="_blank">
+                    <img src="./images/depho25.jpg" alt="Generating Novel Brain Morphology" class="pub-thumb">
+                </a>
+                <div class="pub-body">
+                    <a href="https://arxiv.org/abs/2503.03778" target="_blank"><h3 class="pub-title">Generating Novel Brain Morphology by Deforming Learned Templates</h3></a>
+                    <p class="authors">Alan Q. Wang, Fangrui Huang, <strong>Bailey Trang</strong>, Wei Peng, Mohammad Abbasi, Kilian Pohl, Mert Sabuncu, Ehsan Adeli</p>
+                    <p class="venue"><em>Medical Image Computing and Computer Assisted Intervention (MICCAI)</em>, 2025</p>
+                    <p class="pub-links">
+                        <a href="https://arxiv.org/abs/2503.03778" target="_blank">[arXiv]</a>
+                        <span class="sep">/</span>
+                        [<a href="javascript:void(0)" onclick="toggleBibtex('bib-miccai25')">bibtex</a>]
+                    </p>
+                    <div id="bib-miccai25" class="bibtex"><pre><code>@inproceedings{wang2025generating,
+  title     = {Generating Novel Brain Morphology by Deforming Learned Templates},
+  author    = {Wang, Alan Q. and Huang, Fangrui and Nguyen, Bailey Trang and Peng, Wei and Abbasi, Mohammad and Pohl, Kilian and Sabuncu, Mert and Adeli, Ehsan},
+  booktitle = {Medical Image Computing and Computer Assisted Intervention (MICCAI)},
+  year      = {2025},
+  eprint    = {2503.03778},
+  archivePrefix = {arXiv},
+  primaryClass  = {eess.IV}
+}</code></pre></div>
                 </div>
             </article>
 
-            <!-- Project 3 -->
-            <article class="project-card">
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src="./images/bio23.png" alt="Causal discovery in gene regulatory networks" class="project-thumb">
-                    <div>
-                        <h3>Causal discovery in gene regulatory networks with gflownet: towards scalability in large systems</h3>
-                        <p class="authors"><strong>Trang Nguyen</strong>, Alexander Tong, Kanika Madan, Yoshua Bengio, Dianbo Liu</p>
-                        <div class="project-links">
-                            <a href="https://openreview.net/pdf?id=jbamDZ374t" target="_blank"><i class="fas fa-book"></i>NeurIPS 2023</a>
-                        </div>
-                    </div>
+            <!-- Publication 3 -->
+            <article class="publication">
+                <a href="https://aclanthology.org/2023.emnlp-main.573/" target="_blank">
+                    <img src="./images/emnlp23.png" alt="Causal reasoning in VQA" class="pub-thumb">
+                </a>
+                <div class="pub-body">
+                    <a href="https://aclanthology.org/2023.emnlp-main.573/" target="_blank"><h3 class="pub-title">Causal Reasoning through Two Cognition Layers for Improving Generalization in Visual Question Answering</h3></a>
+                    <p class="authors"><strong>Trang Nguyen</strong>, Naoaki Okazaki</p>
+                    <p class="venue"><em>Conference on Empirical Methods in Natural Language Processing (EMNLP)</em>, 2023</p>
+                    <p class="pub-links">
+                        <a href="https://aclanthology.org/2023.emnlp-main.573/" target="_blank">[Paper]</a>
+                        <span class="sep">/</span>
+                        [<a href="javascript:void(0)" onclick="toggleBibtex('bib-emnlp23')">bibtex</a>]
+                    </p>
+                    <div id="bib-emnlp23" class="bibtex"><pre><code>@inproceedings{nguyen2023causal,
+  title     = {Causal Reasoning through Two Cognition Layers for Improving Generalization in Visual Question Answering},
+  author    = {Nguyen, Trang and Okazaki, Naoaki},
+  booktitle = {Proceedings of the 2023 Conference on Empirical Methods in Natural Language Processing (EMNLP)},
+  year      = {2023},
+  url       = {https://aclanthology.org/2023.emnlp-main.573/}
+}</code></pre></div>
                 </div>
             </article>
 
-            <!-- Project 4 -->
-            <article class="project-card">
-                <div style="display: flex; align-items: center; gap: 20px;">
-                    <img src="./images/neurips23.png" alt="Reusable Slotwise Mechanisms" class="project-thumb">                    <div>
-                        <h3>Reusable Slotwise Mechanisms</h3>
-                        <p class="authors"><strong>Trang Nguyen</strong>, Amin Mansouri, Kanika Madan, Khuong Duy Nguyen, Kartik Ahuja, Dianbo Liu, Yoshua Bengio</p>
-                        <div class="project-links">
-                            <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/49ff6951ef47bc9bab276a31a965528e-Abstract-Conference.html" target="_blank"><i class="fas fa-book"></i>NeurIPS 2023</a>
-                        </div>
-                    </div>
+            <!-- Publication 4 -->
+            <article class="publication">
+                <a href="https://openreview.net/pdf?id=jbamDZ374t" target="_blank">
+                    <img src="./images/bio23.png" alt="Causal discovery in gene regulatory networks" class="pub-thumb">
+                </a>
+                <div class="pub-body">
+                    <a href="https://openreview.net/pdf?id=jbamDZ374t" target="_blank"><h3 class="pub-title">Causal Discovery in Gene Regulatory Networks with GFlowNet: Towards Scalability in Large Systems</h3></a>
+                    <p class="authors"><strong>Trang Nguyen</strong>, Alexander Tong, Kanika Madan, Yoshua Bengio, Dianbo Liu</p>
+                    <p class="venue"><em>NeurIPS Workshop on New Frontiers of AI for Drug Discovery and Development</em>, 2023</p>
+                    <p class="pub-links">
+                        <a href="https://openreview.net/pdf?id=jbamDZ374t" target="_blank">[Paper]</a>
+                        <span class="sep">/</span>
+                        [<a href="javascript:void(0)" onclick="toggleBibtex('bib-grn23')">bibtex</a>]
+                    </p>
+                    <div id="bib-grn23" class="bibtex"><pre><code>@inproceedings{nguyen2023causalgrn,
+  title     = {Causal Discovery in Gene Regulatory Networks with GFlowNet: Towards Scalability in Large Systems},
+  author    = {Nguyen, Trang and Tong, Alexander and Madan, Kanika and Bengio, Yoshua and Liu, Dianbo},
+  booktitle = {NeurIPS Workshop on New Frontiers of AI for Drug Discovery and Development},
+  year      = {2023},
+  url       = {https://openreview.net/pdf?id=jbamDZ374t}
+}</code></pre></div>
                 </div>
             </article>
+
+            <!-- Publication 5 -->
+            <article class="publication">
+                <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/49ff6951ef47bc9bab276a31a965528e-Abstract-Conference.html" target="_blank">
+                    <img src="./images/neurips23.png" alt="Reusable Slotwise Mechanisms" class="pub-thumb">
+                </a>
+                <div class="pub-body">
+                    <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/49ff6951ef47bc9bab276a31a965528e-Abstract-Conference.html" target="_blank"><h3 class="pub-title">Reusable Slotwise Mechanisms</h3></a>
+                    <p class="authors"><strong>Trang Nguyen</strong>, Amin Mansouri, Kanika Madan, Khuong Duy Nguyen, Kartik Ahuja, Dianbo Liu, Yoshua Bengio</p>
+                    <p class="venue"><em>Advances in Neural Information Processing Systems (NeurIPS)</em>, 2023</p>
+                    <p class="pub-links">
+                        <a href="https://proceedings.neurips.cc/paper_files/paper/2023/hash/49ff6951ef47bc9bab276a31a965528e-Abstract-Conference.html" target="_blank">[Paper]</a>
+                        <span class="sep">/</span>
+                        [<a href="javascript:void(0)" onclick="toggleBibtex('bib-rsm23')">bibtex</a>]
+                    </p>
+                    <div id="bib-rsm23" class="bibtex"><pre><code>@inproceedings{nguyen2023reusable,
+  title     = {Reusable Slotwise Mechanisms},
+  author    = {Nguyen, Trang and Mansouri, Amin and Madan, Kanika and Nguyen, Khuong Duy and Ahuja, Kartik and Liu, Dianbo and Bengio, Yoshua},
+  booktitle = {Advances in Neural Information Processing Systems (NeurIPS)},
+  year      = {2023},
+  url       = {https://proceedings.neurips.cc/paper_files/paper/2023/hash/49ff6951ef47bc9bab276a31a965528e-Abstract-Conference.html}
+}</code></pre></div>
+                </div>
+            </article>
+
         </div>
     </section>
+
+    <script>
+        // Reveal elements as they scroll into view
+        const revealTargets = document.querySelectorAll(
+            '.publication, .latest-news, h2'
+        );
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        revealTargets.forEach((el) => observer.observe(el));
+
+        // Toggle BibTeX blocks
+        function toggleBibtex(id) {
+            const el = document.getElementById(id);
+            el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
 </body>
 </html>
