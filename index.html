@@ -51,6 +51,85 @@
         </div>
     </header>
 
+    <section class="timeline-section">
+        <h2>Experience</h2>
+        <div class="scurve-wrap">
+            <svg class="scurve-svg" viewBox="0 0 1000 560" fill="none" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+                <defs>
+                    <linearGradient id="scurveGrad" x1="0" y1="560" x2="1000" y2="0" gradientUnits="userSpaceOnUse">
+                        <stop offset="0" stop-color="#8a7cf0"/>
+                        <stop offset="0.4" stop-color="#1fb6a8"/>
+                        <stop offset="0.72" stop-color="#e85d9c"/>
+                        <stop offset="1" stop-color="#e50914"/>
+                    </linearGradient>
+                </defs>
+                <path class="scurve-track" d="M160 360 C300 360 360 360 500 360 C640 360 700 360 840 360 C980 360 980 200 840 200 C700 200 640 200 500 200 C360 200 300 200 160 200"/>
+                <!-- per-institution duration segments are injected here by JS -->
+            </svg>
+
+            <!-- bottom-left is the earliest; the path snakes up to Netflix (top-left) -->
+            <div class="sc-item sc-bottom sc-start" data-start="0" data-end="0.244" data-lane="0" data-accent="accent-soft">
+                <span class="sc-node"><i class="fas fa-flag"></i></span>
+                <div class="sc-label">
+                    <span class="sc-date">Aug 2019 – May 2021</span>
+                    <span class="sc-org">Vietnam University of Science</span>
+                    <span class="sc-role">Research Assistant</span>
+                    <span class="sc-loc">Ho Chi Minh City, Vietnam</span>
+                </div>
+            </div>
+
+            <div class="sc-item sc-bottom" data-start="0.244" data-end="0.628" data-lane="0" data-accent="pink">
+                <span class="sc-node"></span>
+                <div class="sc-label">
+                    <span class="sc-date">May 2021 – Feb 2024</span>
+                    <span class="sc-org">Mila – Quebec AI Institute</span>
+                    <span class="sc-role">Research Intern</span>
+                    <span class="sc-loc">Quebec, Canada</span>
+                </div>
+            </div>
+
+            <div class="sc-item sc-bottom" data-start="0.372" data-end="0.640" data-lane="1" data-accent="amber">
+                <span class="sc-node"></span>
+                <div class="sc-label">
+                    <span class="sc-date">Apr 2022 – Mar 2024</span>
+                    <span class="sc-org">Tokyo Institute of Technology</span>
+                    <span class="sc-role">M.S. Researcher</span>
+                    <span class="sc-loc">Tokyo, Japan</span>
+                </div>
+            </div>
+
+            <div class="sc-item sc-top sc-flip" data-start="0.628" data-end="0.709" data-lane="0" data-accent="teal">
+                <span class="sc-node"></span>
+                <div class="sc-label">
+                    <span class="sc-date">Feb 2024 – Sept 2024</span>
+                    <span class="sc-org">National University of Singapore</span>
+                    <span class="sc-role">Research Assistant</span>
+                    <span class="sc-loc">Singapore</span>
+                </div>
+            </div>
+
+            <div class="sc-item sc-top sc-current" data-start="0.709" data-end="1" data-lane="0" data-accent="accent">
+                <span class="sc-node"><i class="fas fa-star"></i></span>
+                <div class="sc-label">
+                    <span class="sc-date">Sept 2024 – Present</span>
+                    <span class="sc-org">Stanford University</span>
+                    <span class="sc-role">PhD, Computer Science</span>
+                    <span class="sc-loc">Stanford, CA</span>
+                </div>
+            </div>
+
+            <div class="sc-item sc-top sc-current" data-start="0.953" data-end="1" data-lane="1" data-accent="netflix">
+                <span class="sc-node"><i class="fas fa-star"></i></span>
+                <div class="sc-label">
+                    <span class="sc-date">June 2026 – Present</span>
+                    <span class="sc-org">Netflix <span class="sc-now">now</span></span>
+                    <span class="sc-role">Summer Research Intern</span>
+                    <span class="sc-loc">Los Gatos, CA</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="projects-section">
         <h2>Publications</h2>
         <div class="projects-grid">
@@ -185,7 +264,7 @@
     <script>
         // Reveal elements as they scroll into view
         const revealTargets = document.querySelectorAll(
-            '.publication, .latest-news, h2'
+            '.publication, .latest-news, h2, .timeline-section'
         );
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
@@ -196,6 +275,81 @@
             });
         }, { threshold: 0.15 });
         revealTargets.forEach((el) => observer.observe(el));
+
+        // Draw each institution as its own segment of the S-curve, spanning from
+        // its start date to its end date. Concurrent roles (Tokyo, Netflix) ride a
+        // parallel offset strand so they never collide with the main line.
+        (function buildTimeline() {
+            const SVGNS = 'http://www.w3.org/2000/svg';
+            const svg = document.querySelector('.scurve-svg');
+            const track = document.querySelector('.scurve-track');
+            const items = [...document.querySelectorAll('.sc-item')];
+            if (!svg || !track || !track.getTotalLength || !items.length) return;
+
+            const VBW = 1000, VBH = 560, CX = 500, CY = 280, OFFSET = 12;
+            const L = track.getTotalLength();
+            const COLOR = {
+                'accent-soft': '#8a7cf0', 'pink': '#e85d9c', 'amber': '#f5a623',
+                'teal': '#1fb6a8', 'accent': '#5b4bd8', 'netflix': '#e50914'
+            };
+
+            // a point at time-fraction t, pushed OUTWARD from the loop center by lane
+            function pointAt(t, lane) {
+                const s = Math.max(0, Math.min(L, t * L));
+                const p = track.getPointAtLength(s);
+                if (!lane) return { x: p.x, y: p.y };
+                const a = track.getPointAtLength(Math.max(0, s - 0.5));
+                const b = track.getPointAtLength(Math.min(L, s + 0.5));
+                let tx = b.x - a.x, ty = b.y - a.y;
+                const m = Math.hypot(tx, ty) || 1;
+                let nx = -ty / m, ny = tx / m; // unit normal
+                const sign = ((p.x - CX) * nx + (p.y - CY) * ny) >= 0 ? 1 : -1; // outward
+                return { x: p.x + nx * OFFSET * lane * sign, y: p.y + ny * OFFSET * lane * sign };
+            }
+
+            function segPath(t0, t1, lane) {
+                let d = '';
+                const a = t0 * L, b = t1 * L, step = 3;
+                for (let s = a; s < b; s += step) {
+                    const pt = pointAt(s / L, lane);
+                    d += (d ? 'L' : 'M') + pt.x.toFixed(1) + ' ' + pt.y.toFixed(1);
+                }
+                const e = pointAt(t1, lane);
+                d += 'L' + e.x.toFixed(1) + ' ' + e.y.toFixed(1);
+                return d;
+            }
+
+            items.forEach((item) => {
+                const acc = item.dataset.accent;
+                const t0 = parseFloat(item.dataset.start);
+                const t1 = parseFloat(item.dataset.end);
+                const lane = parseInt(item.dataset.lane, 10) || 0;
+                const delay = (0.2 + t0 * 1.5).toFixed(2) + 's';
+
+                // the duration segment
+                const seg = document.createElementNS(SVGNS, 'path');
+                seg.setAttribute('d', segPath(t0, t1, lane));
+                seg.setAttribute('class', 'sc-seg');
+                seg.setAttribute('pathLength', '1');
+                seg.style.stroke = COLOR[acc];
+                seg.style.color = COLOR[acc]; // drives the hover drop-shadow glow
+                seg.style.setProperty('--d', delay);
+                svg.appendChild(seg);
+                item._seg = seg;
+
+                // the node + label, anchored at the segment's start
+                const sp = pointAt(t0, lane);
+                item.style.left = (sp.x / VBW * 100) + '%';
+                item.style.top = (sp.y / VBH * 100) + '%';
+                item.classList.toggle('sc-top', sp.y < VBH / 2);
+                item.classList.toggle('sc-bottom', sp.y >= VBH / 2);
+                item.style.setProperty('--d', delay);
+
+                // hover highlights the matching segment
+                item.addEventListener('mouseenter', () => seg.classList.add('hot'));
+                item.addEventListener('mouseleave', () => seg.classList.remove('hot'));
+            });
+        })();
 
         // Toggle BibTeX blocks
         function toggleBibtex(id) {
