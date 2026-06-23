@@ -378,7 +378,7 @@ a:hover {
 }
 
 /* hover: the matching line thickens and glows in its own color */
-.sc-seg.hot,
+.sc-seg.hl,
 .sc-seg:hover {
     stroke-width: 12;
     filter: drop-shadow(0 0 8px);
@@ -405,7 +405,8 @@ a:hover {
     border: 4px solid var(--bg);
     box-shadow: 0 0 0 3px currentColor, 0 4px 12px rgba(40, 50, 120, 0.18);
     transform: translate(-50%, -50%) scale(0);
-    z-index: 1;
+    z-index: 3;
+    cursor: pointer;
 }
 
 .timeline-section.in-view .sc-node {
@@ -425,14 +426,14 @@ a:hover {
     z-index: -1;
 }
 
-.sc-item:hover .sc-node::after {
+.sc-node.hl::after {
     opacity: 0.22;
     transform: scale(2.2);
 }
 
 /* distinct markers: a flag for the first stop, a star for the current one */
-.sc-start .sc-node,
-.sc-current .sc-node {
+.sc-node.sc-start,
+.sc-node.sc-current {
     width: 30px;
     height: 30px;
     display: flex;
@@ -440,19 +441,19 @@ a:hover {
     justify-content: center;
 }
 
-.sc-start .sc-node i,
-.sc-current .sc-node i {
+.sc-node.sc-start i,
+.sc-node.sc-current i {
     color: #fff;
     font-size: 0.72rem;
     line-height: 1;
 }
 
 /* "Current position" tooltip on the star marker */
-.sc-current .sc-node {
+.sc-node.sc-current {
     cursor: help;
 }
 
-.sc-current .sc-node::before {
+.sc-node.sc-current::before {
     content: "Current position";
     position: absolute;
     top: 150%;
@@ -472,7 +473,8 @@ a:hover {
     z-index: 5;
 }
 
-.sc-current .sc-node:hover::before {
+.sc-node.sc-current:hover::before,
+.sc-node.sc-current.hl::before {
     opacity: 1;
     transform: translateX(-50%) translateY(0);
 }
@@ -483,26 +485,35 @@ a:hover {
     width: 196px;
     text-align: center;
     opacity: 0;
-    transform: translateX(-50%) translateY(10px);
+    transform: translateX(-50%);
     transition: opacity 0.6s ease calc(var(--d) + 0.15s),
-                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+                transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* top-row labels float above their node, bottom-row below;
-   .sc-flip sends a crowded label to the inside of the curve instead */
-.sc-top .sc-label { bottom: 22px; }
-.sc-bottom .sc-label { top: 22px; }
-.sc-top.sc-flip .sc-label { top: 22px; bottom: auto; }
-.sc-bottom.sc-flip .sc-label { bottom: 22px; top: auto; }
+/* labels sit at their marker; overlapping ones get bumped onto a new line (tier) */
+.sc-top .sc-label { bottom: calc(22px + var(--tier, 0) * 64px); }
+.sc-bottom .sc-label { top: calc(22px + var(--tier, 0) * 64px); }
+
+/* a side label (for a stop that lands on a bend) sits to the right of its node */
+.sc-side .sc-label {
+    left: 26px;
+    top: -8px;
+    width: 178px;
+    text-align: left;
+    transform: none;
+}
 
 .timeline-section.in-view .sc-label {
     opacity: 1;
-    transform: translateX(-50%) translateY(0);
 }
 
-/* hover: lift the label, surface the accent color */
-.sc-item:hover .sc-label {
+/* hover: lift the label */
+.sc-item.hl .sc-label {
     transform: translateX(-50%) translateY(-5px);
+}
+
+.sc-item.sc-side.hl .sc-label {
+    transform: translateX(5px);
 }
 
 .sc-date {
@@ -523,7 +534,7 @@ a:hover {
     transition: color 0.25s ease;
 }
 
-.sc-item:hover .sc-org {
+.sc-item.hl .sc-org {
     color: currentColor;
 }
 
@@ -781,7 +792,6 @@ a.pub-title:hover {
     .sc-label {
         opacity: 1 !important;
     }
-    .sc-label { transform: translateX(-50%) !important; }
     .sc-node { transform: translate(-50%, -50%) scale(1) !important; }
     .sc-seg { stroke-dashoffset: 0 !important; }
 }
